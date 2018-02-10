@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@keyframes panning {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 100%;
+    }
+     50% {
+      background-position: 100% 0%;
+    }
+    75% {
+      background-position: 0 100%;
+    }
+    200% {
+      background-position: 0 0;
+    }
+  }
+  
+  .movingbackground {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: black url(https://upload.wikimedia.org/wikipedia/commons/9/92/Cygnus_Loop_Nebula.jpg);
+    background-size: 500%;
+    animation: panning 750s infinite alternate;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 10;
+  }
+  
+
+  
+  html, body {
+    height: 100%;
+  }
+
+  * {
+    opacity: .95
+}

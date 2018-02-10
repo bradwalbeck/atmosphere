@@ -1,14 +1,35 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Atmosphere</title>
   <base href="/">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/slate/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
-  <app-root></app-root>
+
+<body class='movingbackground'>
+  <div class='overlay'>
+    <app-root>
+      <div class="container col-md-8 col-md-offset-2" style="margin-top:120px; text-align: center;">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="1" aria-valuemin="1"
+            aria-valuemax="1" style="width: 100%">
+          </div>
+        </div>
+        <h3>Beep.. Boop..</h3>
+      </div>
+    </app-root>
+  </div>
+  <div class='well well-sm' style='position: absolute; top: 85%; right: 20%;'>
+      <span style="font-variant: small-caps">© Well Oiled Apps 2017</span>
+      <br />
+      <span style="font-variant: small-caps">All rights reserved</span>
+  </div>
 </body>
+
 </html>

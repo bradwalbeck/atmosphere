@@ -1,0 +1,15 @@
+<div>
+  <div class="well well-sm">
+    <button type="button" (click)="volumedown()" style="float: left;" class="btn btn-default btn-lg glyphicon glyphicon-volume-down halfwidthbutton"></button>
+    <button type="button" (click)="volumeup()" style="float: right;" class="btn btn-default btn-lg glyphicon glyphicon-volume-up halfwidthbutton"></button>
+
+    <button *ngIf="!playing" type="button" (click)="play()" class="btn btn-info btn-lg glyphicon glyphicon-play fullwidthbutton"></button>
+    <button *ngIf="playing" type="button" (click)="pause()" class="btn btn-info btn-lg glyphicon glyphicon-pause fullwidthbutton"></button>
+  </div>
+  <div class="well well-sm">
+    <audio controls loop preload="auto" id="player" volume="{{this.audioPlayer.volume}}">
+      <!-- autoplay -->
+      <source src="./../../assets/audio/SpaceshipAmbience.mp3" type="audio/mpeg"> Your browser does not support the features used in this site. Please consider using another browser.
+    </audio>
+  </div>
+</div>
