@@ -8,57 +8,40 @@ import { NgModel } from '@angular/forms';
 })
 
 export class LeftNavbarComponent implements OnInit {
-
-  public audioPlayer: AudioPlayer;
-
-  constructor() {
-    this.audioPlayer = new AudioPlayer();
-    this.audioPlayer.audioElement = document.getElementById('player');
-    // document.getElementById("player").src = "./../../assets/audio/SpaceshipAmbience.mp3";
-    // this.audioPlayer.audioElement.src = "./../../assets/audio/SpaceshipAmbience.mp3";
-    this.audioPlayer.volume = .30;
-    this.audioPlayer.playing = false;
-  }
-
-  ngOnInit() {
-
-  }
-
-  volumedown() {
-    this.audioPlayer.volumedown();
-  }
-
-  volumeup() {
-    this.audioPlayer.volumeup();
-  }
-
-  play() {
-    this.audioPlayer.audioElement.play();
-    this.audioPlayer.playing = true;
-  }
-
-  pause() {
-    this.audioPlayer.audioElement.pause();
-    this.audioPlayer.playing = false;
-  }
+  ngOnInit() { }
 }
 
 export class AudioPlayer {
   audioElement: any;
-  playing: boolean;
-  volume: number;
 
-  volumedown() {
-    if (this.volume > .05) {
-      this.volume -= .05;
-    }
+  constructor(audioElement: any) {
+    this.audioElement = audioElement;
   }
 
-  volumeup() {
-    if (this.volume < 1.00) {
-      this.volume += .05;
-    }
+  volumeDown () {
+    console.log('AudioPlayer.volumedown()');
+    this.audioElement.volumeDown();
   }
-  play() {}
-  pause () {}
+
+  volumeUp () {
+    console.log('AudioPlayer.volumeup()');
+    this.audioElement.volumeUp();
+  }
+
+  play() {
+
+      console.log('AudioPlayer.play()');
+      this.audioElement.play();
+
+  }
+
+  pause () {
+      console.log('AudioPlayer.pause()');
+      this.audioElement.pause();
+  }
+
+  isPlaying () {
+    return this.audioElement.isPlaying();
+  }
+
 }

@@ -1,0 +1,20 @@
+<div class="well well-sm">
+    <button type="button" (click)="this.volumeDown()" style="float: left;" class="btn btn-default btn-lg glyphicon glyphicon-volume-down halfwidthbutton"></button>
+    <button type="button" (click)="this.volumeUp()" style="float: right;" class="btn btn-default btn-lg glyphicon glyphicon-volume-up halfwidthbutton"></button>
+
+    <button *ngIf="!this.isPlaying()" type="button" (click)="this.play()" class="btn btn-info btn-lg glyphicon glyphicon-play fullwidthbutton"></button>
+    <button *ngIf="this.isPlaying()" type="button" (click)="this.pause()" class="btn btn-info btn-lg glyphicon glyphicon-pause fullwidthbutton"></button>
+  </div>
+  <div class="well well-sm">
+      <audio controls loop preload="auto" id="player">
+          <!-- autoplay -->
+          <source src="./../../assets/audio/SpaceshipAmbience.mp3" type="audio/mpeg" />
+            Your browser does not support the features used in this site. Please consider using another browser.
+        </audio>
+        <input class="form-control" type="range" min="0" max="1" step="0.01" ng-model="this.">
+        <button type="button" (click)="play()" *ngIf="isPlaying()">Play</button>
+        <button type="button" (click)="pause()" *ngIf="!isPlaying()">Pause</button>
+        <button type="button" (click)="volumeUp()" >Previous</button>
+        <button type="button" (click)="volumeDown()" >Next</button>
+  </div>
+

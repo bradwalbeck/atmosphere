@@ -8,14 +8,14 @@ import { AudioTrackService } from './services/audiotrack/audiotrack.service';
 import { LeftNavbarComponent } from './components/leftnavbar/leftnavbar.component';
 import { AudioComponent } from './components/audio/audio.component';
 import { AudioContainerComponent } from './components/audiocontainer/audiocontainer.component';
-import { AudioContainerRowComponent } from './components/audiocontainerrow/audiocontainerrow.component';
+import { AudioPlayerComponent } from './components/audioplayer/audioplayer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftNavbarComponent,
-    AudioContainerRowComponent,
+    AudioPlayerComponent,
     AudioContainerComponent,
     AudioComponent
   ],
