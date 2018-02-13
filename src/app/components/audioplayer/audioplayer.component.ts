@@ -9,19 +9,38 @@ import { Component, OnInit } from '@angular/core';
 
 export class AudioPlayerComponent implements OnInit {
 
-  audioElement: HTMLAudioElement;
-  ngOnInit() { }
+  audioElement: any;
+  isPlaying: boolean;
+
+  ngOnInit () {
+    this.audioElement = new Audio();
+    this.audioElement.src = './../../assets/audio/SpaceshipAmbience.mp3';
+    this.audioElement.load();
+    // auto-start
+    this.audioElement.play();
+    this.isPlaying = true;
+  }
+
+  ngOnDestroy() {
+    // destroy audio here
+    if (this.audioElement) {
+      this.audioElement.pause();
+      this.audioElement = null;
+    }
+  }
 
   constructor() {
       this.audioElement = document.getElementById('player'); // this should come from the service
    }
 
   getVolume() {
-    return
+    console.log('AudioPlayer.getVolume()');
+    this.audioElement.getVolume();
   }
 
-  setVolume(value: number) {
-
+  setVolume(volume: number) {
+    console.log('AudioPlayer.setVolume() : ' + volume );
+    this.audioElement.setVolume(volume);
   }
 
   volumeDown () {
@@ -35,19 +54,15 @@ export class AudioPlayerComponent implements OnInit {
     }
 
     play() {
-
         console.log('AudioPlayer.play()');
         this.audioElement.play();
-
+        this.isPlaying = true;
     }
 
 
     pause () {
         console.log('AudioPlayer.pause()');
         this.audioElement.pause();
-    }
-
-    isPlaying () {
-      return this.audioElement.isPlaying();
+        this.isPlaying = false;
     }
 }
