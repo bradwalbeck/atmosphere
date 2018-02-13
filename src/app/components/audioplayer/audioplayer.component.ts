@@ -11,6 +11,8 @@ export class AudioPlayerComponent implements OnInit {
 
   audioElement: any;
   isPlaying: boolean;
+  displayedVolume: number;
+  trackTitle: string;
 
   ngOnInit () {
     this.audioElement = new Audio();
@@ -18,6 +20,9 @@ export class AudioPlayerComponent implements OnInit {
     this.audioElement.load();
     // auto-start
     // this.audioElement.play();
+    this.displayedVolume = 50;
+    this.trackTitle = 'my cool song';
+    this.audioElement.volume = .5;
     this.isPlaying = false;
   }
 
@@ -35,25 +40,27 @@ export class AudioPlayerComponent implements OnInit {
    }
 
   volumeDown () {
-      console.log('AudioPlayer.volumedown()');
+      console.log('AudioPlayer.volumedown() ' + this.audioElement.volume);
       const volume = this.audioElement.volume;
       if (volume > .05) {
         this.audioElement.volume -= 0.05;
+        this.displayedVolume -= 5;
         return;
       }
       if (volume  <= .05 ) {
         this.audioElement.volume = 0.00;
-        this.pause();
+        this.displayedVolume = 0;
         return;
       }
     }
 
 
     volumeUp () {
-      console.log('AudioPlayer.volumeup()');
+      console.log('AudioPlayer.volumeup() ' + this.audioElement.volume);
       const volume = this.audioElement.volume;
       if (volume <= .95) {
         this.audioElement.volume += 0.05;
+        this.displayedVolume += 5;
       }
     }
 

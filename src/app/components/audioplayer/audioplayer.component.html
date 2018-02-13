@@ -1,9 +1,14 @@
-<div class="well well-sm">
-    <button type="button" (click)="this.volumeDown()" style="float: left;" class="btn btn-default btn-lg glyphicon glyphicon-volume-down halfwidthbutton"></button>
-    <button type="button" (click)="this.volumeUp()" style="float: right;" class="btn btn-default btn-lg glyphicon glyphicon-volume-up halfwidthbutton"></button>
-
-    <button *ngIf="!this.isPlaying" type="button" (click)="this.play()" class="btn btn-info btn-lg glyphicon glyphicon-play fullwidthbutton"></button>
-    <button *ngIf="this.isPlaying" type="button" (click)="this.pause()" class="btn btn-info btn-lg glyphicon glyphicon-pause fullwidthbutton"></button>
-  </div>
+<div class="well well-sm" style='white-space: nowrap;'>
+    <span>
+        {{trackTitle}}
+    </span>
+    <button *ngIf="!this.isPlaying" type="button" (click)="this.play()" class="btn btn-info btn-sm glyphicon glyphicon-play fullwidthbutton"></button>
+    <button *ngIf="this.isPlaying" type="button" (click)="this.pause()" class="btn btn-info btn-sm glyphicon glyphicon-pause fullwidthbutton"></button>
+    <button type="button" (click)="this.volumeDown()" class="btn btn-default btn-sm glyphicon glyphicon-volume-down halfwidthbutton"></button>
+    <button type="button" (click)="this.volumeUp()" class="btn btn-default btn-sm glyphicon glyphicon-volume-up halfwidthbutton"></button>
+    <span class="text-info" style='font-family:monospace;'>
+        {{displayedVolume}}
+    </span>    
+</div>
 
 

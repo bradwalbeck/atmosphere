@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AudioTrackService } from './services/audiotrack/audiotrack.service';
 
-import { LeftNavbarComponent } from './components/leftnavbar/leftnavbar.component';
 import { AudioComponent } from './components/audio/audio.component';
 import { AudioContainerComponent } from './components/audiocontainer/audiocontainer.component';
 import { AudioPlayerComponent } from './components/audioplayer/audioplayer.component';
@@ -14,7 +13,6 @@ import { AudioPlayerComponent } from './components/audioplayer/audioplayer.compo
 @NgModule({
   declarations: [
     AppComponent,
-    LeftNavbarComponent,
     AudioPlayerComponent,
     AudioContainerComponent,
     AudioComponent
