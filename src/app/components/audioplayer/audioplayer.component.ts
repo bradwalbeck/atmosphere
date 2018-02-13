@@ -17,10 +17,11 @@ export class AudioPlayerComponent implements OnInit {
     this.audioElement.src = './../../assets/audio/SpaceshipAmbience.mp3';
     this.audioElement.load();
     // auto-start
-    this.audioElement.play();
-    this.isPlaying = true;
+    // this.audioElement.play();
+    this.isPlaying = false;
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
     // destroy audio here
     if (this.audioElement) {
@@ -33,24 +34,27 @@ export class AudioPlayerComponent implements OnInit {
       this.audioElement = document.getElementById('player'); // this should come from the service
    }
 
-  getVolume() {
-    console.log('AudioPlayer.getVolume()');
-    this.audioElement.getVolume();
-  }
-
-  setVolume(volume: number) {
-    console.log('AudioPlayer.setVolume() : ' + volume );
-    this.audioElement.setVolume(volume);
-  }
-
   volumeDown () {
       console.log('AudioPlayer.volumedown()');
-      this.audioElement.volumeDown();
+      const volume = this.audioElement.volume;
+      if (volume > .05) {
+        this.audioElement.volume -= 0.05;
+        return;
+      }
+      if (volume  <= .05 ) {
+        this.audioElement.volume = 0.00;
+        this.pause();
+        return;
+      }
     }
+
 
     volumeUp () {
       console.log('AudioPlayer.volumeup()');
-      this.audioElement.volumeUp();
+      const volume = this.audioElement.volume;
+      if (volume <= .95) {
+        this.audioElement.volume += 0.05;
+      }
     }
 
     play() {
