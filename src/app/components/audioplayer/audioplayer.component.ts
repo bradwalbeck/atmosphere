@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AudioTrackService } from './../../services/audiotrack/audiotrack.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'audioplayer',
@@ -13,17 +13,17 @@ export class AudioPlayerComponent implements OnInit {
   isPlaying: boolean;
   displayedVolume: number;
   trackTitle: string;
-
+  trackService: AudioTrackService;
   ngOnInit () {
     this.audioElement = new Audio();
-    this.audioElement.src = './../../assets/audio/SpaceshipAmbience.mp3';
+    this.audioElement.src = this.trackService.getTrack();
     this.audioElement.load();
-    // auto-start
-    // this.audioElement.play();
-    this.displayedVolume = 50;
-    this.trackTitle = 'my cool song';
     this.audioElement.volume = .5;
-    this.isPlaying = false;
+    // this.audioElement.play(); // auto-start
+
+    this.trackTitle = 'my cool song';
+    this.isPlaying = !this.audioElement.paused;
+    this.displayedVolume = this.audioElement.volume * 100;
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
@@ -34,8 +34,8 @@ export class AudioPlayerComponent implements OnInit {
       this.audioElement = null;
     }
   }
-
-  constructor() {
+  constructor(trackService: AudioTrackService) {
+      this.trackService = trackService;
       this.audioElement = document.getElementById('player'); // this should come from the service
    }
 
