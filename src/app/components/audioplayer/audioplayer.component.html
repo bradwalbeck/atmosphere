@@ -1,6 +1,6 @@
 <div class="well well-sm" style='white-space: nowrap;'>
     <span> <!--This would be good to marquee, more info will be able to be displayed-->
-        {{trackTitle}}
+        {{trackTitle}} {{trackArtist}}
     </span>
     <button *ngIf="!this.isPlaying" type="button" (click)="this.play()" class="btn btn-info btn-sm glyphicon glyphicon-play"></button>
     <button *ngIf="this.isPlaying" type="button" (click)="this.pause()" class="btn btn-info btn-sm glyphicon glyphicon-pause"></button>

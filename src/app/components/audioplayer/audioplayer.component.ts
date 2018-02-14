@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioTrackService } from './../../services/audiotrack/audiotrack.service';
+import { AudioDTO } from '../../services/audiotrack/audiotrack.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'audioplayer',
@@ -13,15 +14,20 @@ export class AudioPlayerComponent implements OnInit {
   isPlaying: boolean;
   displayedVolume: number;
   trackTitle: string;
+  trackArtist: string;
   trackService: AudioTrackService;
+
   ngOnInit () {
+    const audioDTO = this.trackService.getAudio();
     this.audioElement = new Audio();
-    this.audioElement.src = this.trackService.getTrack();
+    this.audioElement.src = audioDTO.src;
     this.audioElement.load();
     this.audioElement.volume = .5;
+    this.audioElement.loop = 'loop';
     // this.audioElement.play(); // auto-start
 
-    this.trackTitle = 'my cool song';
+    this.trackTitle = audioDTO.title;
+    this.trackArtist = audioDTO.artist;
     this.isPlaying = !this.audioElement.paused;
     this.displayedVolume = this.audioElement.volume * 100;
   }

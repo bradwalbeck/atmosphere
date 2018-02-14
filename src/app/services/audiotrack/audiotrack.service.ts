@@ -4,15 +4,54 @@ import { Injectable } from '@angular/core';
 export class AudioTrackService {
 
   constructor() { }
-  TRACKS = [
-    './../../assets/audio/Airport-lounge-music-for-airports.mp3',
-    './../../assets/audio/Howling-wind.mp3',
-    './../../assets/audio/Piano-music-free.mp3',
-    './../../assets/audio/Soft-rain-sound.mp3',
-    './../../assets/audio/SpaceshipAmbience.mp3'
+  AUDIO = [
+    new AudioDTO (
+      './../../assets/audio/Airport-lounge-music-for-airports.mp3',
+      'airport song',
+      'airport guy'
+    ),
+    new AudioDTO (
+      './../../assets/audio/Howling-wind.mp3',
+      'wind song',
+      'wind guy'
+    ),
+    new AudioDTO (
+      './../../assets/audio/Piano-music-free.mp3',
+      'piano song',
+      'paino guy'
+    ),
+    new AudioDTO (
+      './../../assets/audio/Soft-rain-sound.mp3',
+      'rain song',
+      'rain guy'
+    ),
+    new AudioDTO (
+      './../../assets/audio/SpaceshipAmbience.mp3',
+      'space song',
+      'space guy'
+    ),
+
   ];
-  getTrack() {
-    return this.TRACKS.pop();
+
+  getAudio() {
+    return this.AUDIO.pop();
+  }
+
+}
+
+export class AudioDTO {
+  title: string;
+  src: string;
+  artist: string;
+
+  constructor (src: string, title: string, artist: string) {
+    this.src = src;
+    this.title = title;
+    this.artist = artist;
   }
 }
+
+
+
+
 
