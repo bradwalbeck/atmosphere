@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AudioTrackService } from './../../services/audiotrack/audiotrack.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audiocontainer.component.css']
 })
 export class AudioContainerComponent implements OnInit {
+  trackService: AudioTrackService;
 
-  constructor() { }
-
-  ngOnInit() { }
-
+  constructor(trackService: AudioTrackService) {
+    this.trackService = trackService;
+  }
+  ngOnInit() {  }
 }

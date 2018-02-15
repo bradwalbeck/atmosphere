@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class AudioTrackService {
 
   constructor() { }
-  AUDIO = [
+  private AUDIO = [
     new AudioDTO (
       './../../assets/audio/Airport-lounge-music-for-airports.mp3',
       'airport song',
@@ -35,6 +35,9 @@ export class AudioTrackService {
 
   getAudio() {
     return this.AUDIO.pop();
+  }
+  getAudioCount() {
+    return this.AUDIO.length;
   }
 
 }
