@@ -1,11 +1,11 @@
 <div class="well well-sm" style='white-space: nowrap;'>
 
-      <div class='marquee inline'>
-        <span> <!--This would be good to marquee, more info will be able to be displayed-->
-        {{trackTitle}} {{trackArtist}}
+        <div>
+            <span class='marquee'> <!--This would be good to marquee, more info will be able to be displayed-->
+            {{trackTitle}} {{trackArtist}}
         </span>
-    </div>
-
+        </div>
+        <div class="">
         <button *ngIf="this.isPlaying" type="button" (click)="this.pause()" class="btn btn-info btn-sm glyphicon glyphicon-pause"></button>
         <button *ngIf="!this.isPlaying" type="button" (click)="this.play()" class="btn btn-info btn-sm glyphicon glyphicon-play"></button>
   
@@ -15,6 +15,7 @@
         <span class="text-info" style='font-family:monospace; font-size: larger;'>
             {{displayedVolume}}
         </span>
+        </div>
 </div>
 
 

@@ -17,6 +17,11 @@ export class AudioPlayerComponent implements OnInit {
   trackArtist: string;
   trackService: AudioTrackService;
 
+  constructor(trackService: AudioTrackService) {
+    this.trackService = trackService;
+    // this.audioElement = document.getElementById('player'); // this should come from the service
+ }
+
   ngOnInit () {
     const audioDTO = this.trackService.getAudio();
     this.audioElement = new Audio();
@@ -40,10 +45,7 @@ export class AudioPlayerComponent implements OnInit {
       this.audioElement = null;
     }
   }
-  constructor(trackService: AudioTrackService) {
-      this.trackService = trackService;
-      this.audioElement = document.getElementById('player'); // this should come from the service
-   }
+
 
   volumeDown () {
       console.log('AudioPlayer.volumedown() ' + this.audioElement.volume);
@@ -67,7 +69,10 @@ export class AudioPlayerComponent implements OnInit {
       if (volume <= .95) {
         this.audioElement.volume += 0.05;
         this.displayedVolume += 5;
+        return;
       }
+      this.audioElement.volume = 1;
+      this.displayedVolume = 100;
     }
 
     play() {
