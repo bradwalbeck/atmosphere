@@ -67,7 +67,10 @@ export class AudioPlayerComponent implements OnInit {
       if (volume <= .95) {
         this.audioElement.volume += 0.05;
         this.displayedVolume += 5;
+        return;
       }
+      this.audioElement.volume = 1;
+      this.displayedVolume = 100;
     }
 
     play() {
