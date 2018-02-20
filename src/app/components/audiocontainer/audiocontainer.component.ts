@@ -9,9 +9,10 @@ import { AudioTrackService } from './../../services/audiotrack/audiotrack.servic
 })
 export class AudioContainerComponent implements OnInit {
   trackService: AudioTrackService;
-
+  abusedArray = [];
   constructor(trackService: AudioTrackService) {
     this.trackService = trackService;
+    this.abusedArray = new Array(Math.ceil(trackService.getAudioCount() / 2));
   }
   ngOnInit() {  }
 }
