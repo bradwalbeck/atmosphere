@@ -1,18 +1,18 @@
 <div class="well well-sm" style='white-space: nowrap;'>
+  <div class='marquee'>
+    <span>
+      {{trackTitle}} {{trackArtist}}
+    </span>
+  </div>
+  <div>
+    <button *ngIf="this.isPlaying" type="button" (click)="this.pause()" class="btn btn-info btn-sm glyphicon glyphicon-pause"></button>
+    <button *ngIf="!this.isPlaying" type="button" (click)="this.play()" class="btn btn-info btn-sm glyphicon glyphicon-play"></button>
 
-      <span class='marquee inline'>
-        {{trackTitle}} {{trackArtist}}
-      </span>
+    <button type="button" (click)="this.volumeDown()" class="btn btn-default btn-sm glyphicon glyphicon-volume-down"></button>
+    <button type="button" (click)="this.volumeUp()" class="btn btn-default btn-sm glyphicon glyphicon-volume-up"></button>
 
-        <button *ngIf="this.isPlaying" type="button" (click)="this.pause()" class="btn btn-info btn-sm glyphicon glyphicon-pause"></button>
-        <button *ngIf="!this.isPlaying" type="button" (click)="this.play()" class="btn btn-info btn-sm glyphicon glyphicon-play"></button>
-
-        <button type="button" (click)="this.volumeDown()" class="btn btn-default btn-sm glyphicon glyphicon-volume-down"></button>
-        <button type="button" (click)="this.volumeUp()" class="btn btn-default btn-sm glyphicon glyphicon-volume-up"></button>
-
-        <span class="text-info" style='font-family:monospace; font-size: larger;'>
-            {{displayedVolume}}
-        </span>
+    <span class="text-info" style='font-family:monospace; font-size: larger;'>
+      {{displayedVolume}}
+    </span>
+  </div>
 </div>
-
-

@@ -30,6 +30,11 @@ export class AudioTrackService {
       'space song',
       'space guy'
     ),
+    new AudioDTO (
+      './../../assets/audio/SpaceshipAmbience.mp3',
+      'space song',
+      'space guy'
+    ),
 
   ];
 

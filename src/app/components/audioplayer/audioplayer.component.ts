@@ -7,9 +7,7 @@ import { AudioDTO } from '../../services/audiotrack/audiotrack.service';
   templateUrl: './audioplayer.component.html',
   styleUrls: ['./audioplayer.component.css']
 })
-
 export class AudioPlayerComponent implements OnInit {
-
   audioElement: any;
   isPlaying: boolean;
   displayedVolume: number;
@@ -17,12 +15,12 @@ export class AudioPlayerComponent implements OnInit {
   trackArtist: string;
   trackService: AudioTrackService;
 
-  ngOnInit () {
+  ngOnInit() {
     const audioDTO = this.trackService.getAudio();
     this.audioElement = new Audio();
     this.audioElement.src = audioDTO.src;
     this.audioElement.load();
-    this.audioElement.volume = .5;
+    this.audioElement.volume = 0.5;
     this.audioElement.loop = 'loop';
     // this.audioElement.play(); // auto-start
 
@@ -41,48 +39,46 @@ export class AudioPlayerComponent implements OnInit {
     }
   }
   constructor(trackService: AudioTrackService) {
-      this.trackService = trackService;
-      this.audioElement = document.getElementById('player'); // this should come from the service
-   }
+    this.trackService = trackService;
+    this.audioElement = document.getElementById('player'); // this should come from the service
+  }
 
-  volumeDown () {
-      console.log('AudioPlayer.volumedown() ' + this.audioElement.volume);
-      const volume = this.audioElement.volume;
-      if (volume > .05) {
-        this.audioElement.volume -= 0.05;
-        this.displayedVolume -= 5;
-        return;
-      }
-      if (volume  <= .05 ) {
-        this.audioElement.volume = 0.00;
-        this.displayedVolume = 0;
-        return;
-      }
+  volumeDown() {
+    console.log('AudioPlayer.volumedown() ' + this.audioElement.volume);
+    const volume = this.audioElement.volume;
+    if (volume > 0.05) {
+      this.audioElement.volume -= 0.05;
+      this.displayedVolume -= 5;
+      return;
     }
-
-
-    volumeUp () {
-      console.log('AudioPlayer.volumeup() ' + this.audioElement.volume);
-      const volume = this.audioElement.volume;
-      if (volume <= .95) {
-        this.audioElement.volume += 0.05;
-        this.displayedVolume += 5;
-        return;
-      }
-      this.audioElement.volume = 1;
-      this.displayedVolume = 100;
+    if (volume <= 0.05) {
+      this.audioElement.volume = 0.0;
+      this.displayedVolume = 0;
+      return;
     }
+  }
 
-    play() {
-        console.log('AudioPlayer.play()');
-        this.audioElement.play();
-        this.isPlaying = true;
+  volumeUp() {
+    console.log('AudioPlayer.volumeup() ' + this.audioElement.volume);
+    const volume = this.audioElement.volume;
+    if (volume <= 0.95) {
+      this.audioElement.volume += 0.05;
+      this.displayedVolume += 5;
+      return;
     }
+    this.audioElement.volume = 1;
+    this.displayedVolume = 100;
+  }
 
+  play() {
+    console.log('AudioPlayer.play()');
+    this.audioElement.play();
+    this.isPlaying = true;
+  }
 
-    pause () {
-        console.log('AudioPlayer.pause()');
-        this.audioElement.pause();
-        this.isPlaying = false;
-    }
+  pause() {
+    console.log('AudioPlayer.pause()');
+    this.audioElement.pause();
+    this.isPlaying = false;
+  }
 }
