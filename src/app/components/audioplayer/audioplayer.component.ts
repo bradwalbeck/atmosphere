@@ -32,7 +32,6 @@ export class AudioPlayerComponent implements OnInit {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
-    // destroy audio here
     if (this.audioElement) {
       this.audioElement.pause();
       this.audioElement = null;
@@ -40,26 +39,20 @@ export class AudioPlayerComponent implements OnInit {
   }
   constructor(trackService: AudioTrackService) {
     this.trackService = trackService;
-    this.audioElement = document.getElementById('player'); // this should come from the service
   }
 
   volumeDown() {
-    console.log('AudioPlayer.volumedown() ' + this.audioElement.volume);
     const volume = this.audioElement.volume;
     if (volume > 0.05) {
       this.audioElement.volume -= 0.05;
       this.displayedVolume -= 5;
       return;
     }
-    if (volume <= 0.05) {
-      this.audioElement.volume = 0.0;
-      this.displayedVolume = 0;
-      return;
-    }
+    this.audioElement.volume = 0.0;
+    this.displayedVolume = 0;
   }
 
   volumeUp() {
-    console.log('AudioPlayer.volumeup() ' + this.audioElement.volume);
     const volume = this.audioElement.volume;
     if (volume <= 0.95) {
       this.audioElement.volume += 0.05;
@@ -71,13 +64,11 @@ export class AudioPlayerComponent implements OnInit {
   }
 
   play() {
-    console.log('AudioPlayer.play()');
     this.audioElement.play();
     this.isPlaying = true;
   }
 
   pause() {
-    console.log('AudioPlayer.pause()');
     this.audioElement.pause();
     this.isPlaying = false;
   }
