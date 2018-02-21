@@ -26,14 +26,14 @@ export class AudioTrackService {
       'rain guy'
     ),
     new AudioDTO (
-      './../../assets/audio/SpaceshipAmbience.mp3',
-      'space song',
-      'space guy'
+      './../../assets/audio/Six.mp3',
+      'Six',
+      'Marcel Pequel'
     ),
     new AudioDTO (
-      './../../assets/audio/SpaceshipAmbience.mp3',
-      'space song',
-      'space guy'
+      './../../assets/audio/MoonlightReprise.mp3',
+      'Moonlight Reprise',
+      'Kai Engel'
     ),
 
   ];
