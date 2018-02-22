@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioTrackService } from './../../services/audiotrack/audiotrack.service';
 import { AudioDTO } from '../../services/audiotrack/audiotrack.service';
+
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'audioplayer',
   templateUrl: './audioplayer.component.html',
   styleUrls: ['./audioplayer.component.css']
 })
+
 export class AudioPlayerComponent implements OnInit {
   audioElement: any;
   isPlaying: boolean;
