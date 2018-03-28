@@ -9,7 +9,7 @@ import { AudioPlayerComponent } from './components/audioplayer/audioplayer.compo
 import { TitleComponent } from './components/title/title.component';
 
 import { AudioTrackService } from './services/audiotrack/audiotrack.service';
-
+import { RatingModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { AudioTrackService } from './services/audiotrack/audiotrack.service';
     TitleComponent
   ],
   imports: [
+    RatingModule.forRoot(),
     BrowserModule
   ],
   providers: [ AudioTrackService ],

@@ -16,6 +16,8 @@ export class AudioPlayerComponent implements OnInit {
   trackTitle: string;
   trackArtist: string;
   trackService: AudioTrackService;
+  x: Number = 5;
+  y: Number = 2;
 
   ngOnInit() {
     const audioDTO = this.trackService.getAudio();

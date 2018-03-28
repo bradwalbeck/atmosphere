@@ -1,6 +1,6 @@
 <div class="well well-sm" style='white-space: nowrap;'>
   <span>
-    {{trackTitle}} {{trackArtist}} 
+    {{trackTitle}} {{trackArtist}}
   </span>
   <button *ngIf="this.isPlaying" type="button" (click)="this.pause()" class="float-right btn btn-info btn-sm glyphicon glyphicon-pause"></button>
   <button *ngIf="!this.isPlaying" type="button" (click)="this.play()" class="float-right btn btn-info btn-sm glyphicon glyphicon-play"></button>
@@ -9,4 +9,10 @@
   <span class="float-right text-info" style='font-family:monospace; font-size: larger;'>
       {{displayedVolume}}
   </span>
+
+  <div>
+    <rating [max]="10" [customTemplate]="t" style="color: #74cae3;font-size: 20px;  font-kerning: none;"></rating>
+    <b>(<i>Rate:</i> {{x}})</b>
+    <ng-template #t let-index="index" let-value="value">{{index < value ? '&#x025FC;' : '&#x025FB;'}}</ng-template>
+  </div>
 </div>
