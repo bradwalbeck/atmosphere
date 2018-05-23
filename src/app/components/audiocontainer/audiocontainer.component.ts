@@ -12,7 +12,7 @@ export class AudioContainerComponent implements OnInit {
   abusedArray = [];
   constructor(trackService: AudioTrackService) {
     this.trackService = trackService;
-    this.abusedArray = new Array(Math.ceil(trackService.getAudioCount() / 2));
+    this.abusedArray = new Array(trackService.getAudioCount());
   }
   ngOnInit() {  }
 }
