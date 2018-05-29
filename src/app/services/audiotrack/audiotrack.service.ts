@@ -5,52 +5,33 @@ export class AudioTrackService {
 
   constructor() { }
 
+  private srcs: string[] = [ // this should fill by getting the names from the files in the folder
+    './../../assets/audio/Airport-lounge-music-for-airports.mp3'
+   , './../../assets/audio/Howling-wind.mp3'
+   , './../../assets/audio/Piano-music-free.mp3'
+   , './../../assets/audio/Soft-rain-sound.mp3'
+   , './../../assets/audio/Six.mp3'
+   , './../../assets/audio/MoonlightReprise.mp3'
+  ];
+
   getAll () {
-    return this.AUDIO;
+    const audioElements = Array<HTMLAudioElement>();
+    for (const src of this.srcs) {
+      audioElements.push(this.loadAudioElement(src));
+    }
+    return audioElements;
   }
 
-  // tslint:disable-next-line:member-ordering
-  private AUDIO = [
-    new AudioModel (
-      './../../assets/audio/Airport-lounge-music-for-airports.mp3',
-      'airport song',
-      'airport guy'
-    ),
-    new AudioModel (
-      './../../assets/audio/Howling-wind.mp3',
-      'wind song',
-      'wind guy'
-    ),
-    new AudioModel (
-      './../../assets/audio/Piano-music-free.mp3',
-      'piano song',
-      'paino guy'
-    ),
-    new AudioModel (
-      './../../assets/audio/Soft-rain-sound.mp3',
-      'rain song',
-      'rain guy'
-    ),
-    new AudioModel (
-      './../../assets/audio/Six.mp3',
-      'Six',
-      'Marcel Pequel'
-    ),
-    new AudioModel (
-      './../../assets/audio/MoonlightReprise.mp3',
-      'Moonlight Reprise',
-      'Kai Engel'
-    )
-  ];
+  loadAudioElement (src: string): HTMLAudioElement {
+    const audio = new Audio();
+    audio.src = src;
+    audio.load();
+    audio.volume = 0.5;
+    audio.loop = true;
+    return audio;
+  }
 }
 
-export class AudioModel {
-  constructor (
-    public src: string,
-    public title: string,
-    public artist: string
-  ) { }
-}
 
 
 

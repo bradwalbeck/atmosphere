@@ -1,19 +1,20 @@
 <div class="container">
   <div class="row">
-    <div *ngFor='let audioModel of audioTracks'>
+    <div *ngFor='let audioElement of audioTracks'>
       <div class="
             col-xs-8 col-xs-offset-2
             col-sm-6 col-sm-offset-0
             col-md-6
             col-lg-4 ">
-        <audioplayer [audioModel]="audioModel"></audioplayer>
+        <audioplayer [audioElement]="audioElement"></audioplayer>
       </div>
     </div>
   </div>
 </div>
 Defect list:
 <ul>
-<li>inject audio object rather than poping via audio track service</li>
+<li>add pipe to this.audioElement.volume and remove this.displayedVolume</li>
+<li>add pipe this.audioElement.src to make a user friendly displated name</li>
 <li>move this defect list to be a console.log</li>
 <li>volume value display needs work</li>
 <li>add slider for volume. buttons are dumb</li>
