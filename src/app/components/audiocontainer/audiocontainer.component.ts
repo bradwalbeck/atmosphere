@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AudioTrackService } from './../../services/audiotrack/audiotrack.service';
 
 @Component({
@@ -7,16 +7,9 @@ import { AudioTrackService } from './../../services/audiotrack/audiotrack.servic
   templateUrl: './audiocontainer.component.html',
   styleUrls: ['./audiocontainer.component.css']
 })
-export class AudioContainerComponent implements OnInit {
-
+export class AudioContainerComponent {
   audioTracks: Array<HTMLAudioElement>;
-  trackService: AudioTrackService;
-  abusedArray = [];
-
-  constructor(trackService: AudioTrackService) {
-    this.trackService = trackService;
-    this.audioTracks = trackService.getAll();
+  constructor(public trackService: AudioTrackService) {
+    this.audioTracks = this.trackService.getAll();
   }
-
-  ngOnInit() {  }
 }
