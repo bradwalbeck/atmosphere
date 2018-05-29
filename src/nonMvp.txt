@@ -1,0 +1,4 @@
+These are non mvp feature backlog:
+
+<li>i18n?</li>
+<li>can I get the metadata off the audio track?: No. Not MVP</li>

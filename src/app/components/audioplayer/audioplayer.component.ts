@@ -16,11 +16,10 @@ export class AudioPlayerComponent implements OnInit {
   trackTitle: string;
   trackArtist: string;
   trackService: AudioTrackService;
-  x: Number = 5;
-  y: Number = 2;
 
   ngOnInit() {
     const audioModel = this.trackService.getAudio();
+    // Audio (HTMLMediaElement) is of type https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
     this.audioElement = new Audio();
     this.audioElement.src = audioModel.src;
     this.audioElement.load();
