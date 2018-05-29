@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
 import { AudioTrackService } from './../../services/audiotrack/audiotrack.service';
 import { AudioModel } from '../../services/audiotrack/audiotrack.service';
 
@@ -10,26 +10,20 @@ import { AudioModel } from '../../services/audiotrack/audiotrack.service';
 })
 
 export class AudioPlayerComponent implements OnInit {
+  @Input() audioModel: AudioModel;
   audioElement: any;
-  isPlaying: boolean;
   displayedVolume: number;
   trackTitle: string;
   trackArtist: string;
-  trackService: AudioTrackService;
 
   ngOnInit() {
-    const audioModel = this.trackService.getAudio();
     // Audio (HTMLMediaElement) is of type https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
     this.audioElement = new Audio();
-    this.audioElement.src = audioModel.src;
+    this.audioElement.src = this.audioModel.src;
     this.audioElement.load();
     this.audioElement.volume = 0.5;
     this.audioElement.loop = 'loop';
     // this.audioElement.play(); // auto-start
-
-    this.trackTitle = audioModel.title;
-    this.trackArtist = audioModel.artist;
-    this.isPlaying = !this.audioElement.paused;
     this.displayedVolume = this.audioElement.volume * 100;
   }
 
@@ -40,9 +34,7 @@ export class AudioPlayerComponent implements OnInit {
       this.audioElement = null;
     }
   }
-  constructor(trackService: AudioTrackService) {
-    this.trackService = trackService;
-  }
+  constructor() {  }
 
   volumeDown() {
     const volume = this.audioElement.volume;
@@ -68,11 +60,9 @@ export class AudioPlayerComponent implements OnInit {
 
   play() {
     this.audioElement.play();
-    this.isPlaying = true;
   }
 
   pause() {
     this.audioElement.pause();
-    this.isPlaying = false;
   }
 }

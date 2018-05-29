@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AudioTrackService } from './../../services/audiotrack/audiotrack.service';
-
+import { AudioModel } from '../../services/audiotrack/audiotrack.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'audiocontainer',
@@ -8,11 +8,15 @@ import { AudioTrackService } from './../../services/audiotrack/audiotrack.servic
   styleUrls: ['./audiocontainer.component.css']
 })
 export class AudioContainerComponent implements OnInit {
+
+  audioTracks: Array<AudioModel>;
   trackService: AudioTrackService;
   abusedArray = [];
+
   constructor(trackService: AudioTrackService) {
     this.trackService = trackService;
-    this.abusedArray = new Array(trackService.getAudioCount());
+    this.audioTracks = trackService.getAll();
   }
+
   ngOnInit() {  }
 }

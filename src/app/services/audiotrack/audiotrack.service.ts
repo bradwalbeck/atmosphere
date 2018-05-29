@@ -4,6 +4,12 @@ import { Injectable } from '@angular/core';
 export class AudioTrackService {
 
   constructor() { }
+
+  getAll () {
+    return this.AUDIO;
+  }
+
+  // tslint:disable-next-line:member-ordering
   private AUDIO = [
     new AudioModel (
       './../../assets/audio/Airport-lounge-music-for-airports.mp3',
@@ -34,29 +40,16 @@ export class AudioTrackService {
       './../../assets/audio/MoonlightReprise.mp3',
       'Moonlight Reprise',
       'Kai Engel'
-    ),
-
+    )
   ];
-
-  getAudio() {
-    return this.AUDIO.pop();
-  }
-  getAudioCount() {
-    return this.AUDIO.length;
-  }
-
 }
 
 export class AudioModel {
-  title: string;
-  src: string;
-  artist: string;
-
-  constructor (src: string, title: string, artist: string) {
-    this.src = src;
-    this.title = title;
-    this.artist = artist;
-  }
+  constructor (
+    public src: string,
+    public title: string,
+    public artist: string
+  ) { }
 }
 
 
