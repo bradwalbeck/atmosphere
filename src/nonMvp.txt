@@ -2,3 +2,14 @@ These are non mvp feature backlog:
 
 <li>i18n?</li>
 <li>can I get the metadata off the audio track?: No. Not MVP</li>
+<li>Background gets to areas that slows scrolling</li>
+<li>text marquee should only scroll when playing</li>
+<li>well oiled apps and copyright is covered by audio players</li>
+<li>add slider for volume. buttons are dumb</li>
+<li>docker?</li>
+<li>Toggleable light/dark theme</li>
+<li>master volume control</li>
+<li>master pause</li>
+<li>modal feedback from (send with cool no server email)</li>
+<li>fork me github link to project</li>
+<li>Warp speed, sound site that has background noise of spaceships. Rather than coffee shop, they get mess hall.</li>>

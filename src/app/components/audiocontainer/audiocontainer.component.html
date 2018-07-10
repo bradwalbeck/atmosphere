@@ -1,40 +1,12 @@
 <div class="container">
   <div class="row">
     <div *ngFor='let audioElement of audioTracks'>
-      <div class="
-            col-xs-8 col-xs-offset-2
-            col-sm-6 col-sm-offset-0
-            col-md-6
-            col-lg-4 ">
+      <div class="col-md-8 col-md-offset-2">
         <audioplayer [audioElement]="audioElement"></audioplayer>
       </div>
     </div>
   </div>
 </div>
-Defect list:
-<ul>
-<li>move defect and wish lists to console.info output</li>
-<li>add pipe to this.audioElement.volume and remove this.displayedVolume</li>
-
-<li>add slider for volume. buttons are dumb</li>
-<li>volume value display needs work; progress bars?</li>
-<li>Background gets to areas that slows scrolling</li>
-<li>text marquee should only scroll when playing</li>
-<li>well oiled apps and copyright is covered by audio players</li>
-<li>new audio files are needed</li>
-<li>move styles from elements to .css files</li>
-<li>docker?</li>
-</ul>
 
 
-Wishlist:
-<ul>
-<li>Toggleable light/dark theme</li>
-<li>master volume control</li>
-<li>master pause</li>
-<li>modal feedback from (send with cool no server email)</li>
-<li>fork me github link to project</li>
-</ul>
 
-
-Warp speed, sound site that has background noise of spaceships. Rather than coffee shop, they get mess hall.

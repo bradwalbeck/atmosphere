@@ -26,7 +26,6 @@ export class AudioTrackService {
   private loadAudioElement (src: string): HTMLAudioElement {
     const audio = new Audio();
     audio.src = src;
-    audio.load();
     audio.volume = 0.5;
     audio.loop = true;
     return audio;
