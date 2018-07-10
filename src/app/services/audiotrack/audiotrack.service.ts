@@ -6,23 +6,24 @@ export class AudioTrackService {
   constructor() { }
 
   private srcs: string[] = [ // this should fill by getting the names from the files in the folder
-    './../../assets/audio/Airport-lounge-music-for-airports.mp3'
-   , './../../assets/audio/Howling-wind.mp3'
-   , './../../assets/audio/Piano-music-free.mp3'
-   , './../../assets/audio/Soft-rain-sound.mp3'
-   , './../../assets/audio/Six.mp3'
-   , './../../assets/audio/MoonlightReprise.mp3'
+    'Airport-lounge-music-for-airports.mp3'
+   , 'Howling-wind.mp3'
+   , 'Piano-music-free.mp3'
+   , 'Soft-rain-sound.mp3'
+   , 'Six.mp3'
+   , 'MoonlightReprise.mp3'
   ];
 
-  getAll () {
+  public getAll () {
+    const baseUrl = './../../assets/audio/';
     const audioElements = Array<HTMLAudioElement>();
     for (const src of this.srcs) {
-      audioElements.push(this.loadAudioElement(src));
+      audioElements.push(this.loadAudioElement(baseUrl + src));
     }
     return audioElements;
   }
 
-  loadAudioElement (src: string): HTMLAudioElement {
+  private loadAudioElement (src: string): HTMLAudioElement {
     const audio = new Audio();
     audio.src = src;
     audio.load();
