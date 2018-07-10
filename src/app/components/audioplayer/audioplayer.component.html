@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
       <span>
-        {{this.audioElement.src.substr(35)}}
+        {{this.audioElement.src | slice:35:-4}}
       </span>
   </div>
   <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
@@ -12,7 +12,7 @@
     <button type="button" (click)="this.volumeDown()" class="btn btn-default btn-sm glyphicon glyphicon-volume-down"></button>
     <button type="button" (click)="this.volumeUp()" class="btn btn-default btn-sm glyphicon glyphicon-volume-up"></button>
     <span class="text-info" style='font-family:monospace; font-size: larger;'>
-      {{this.audioElement.volume}}
+      {{this.audioElement.volume *100 | number:'2.0-0' }}
     </span>
   </div>
 </div>

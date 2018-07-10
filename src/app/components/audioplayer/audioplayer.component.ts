@@ -20,10 +20,18 @@ export class AudioPlayerComponent {
   }
 
   volumeUp() {
-      this.audioElement.volume += 0.05;
+    if (this.audioElement.volume >= .95) {
+      this.audioElement.volume = 1;
+      return;
+    }
+    this.audioElement.volume += 0.05;
   }
 
   volumeDown() {
-      this.audioElement.volume -= 0.05;
+    if (this.audioElement.volume <= 0.05) {
+      this.audioElement.volume = 0;
+      return;
+    }
+    this.audioElement.volume -= 0.05;
   }
 }
