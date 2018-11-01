@@ -12,6 +12,7 @@ export class AudioTrackService {
    , 'Soft-rain-sound'
    , 'Six'
    , 'MoonlightReprise'
+   , 'Spaceship Ambience'
   ];
 
   public getAll () {
