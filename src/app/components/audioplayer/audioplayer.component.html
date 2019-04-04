@@ -1,18 +1,25 @@
-<div class="well well-sm " style='white-space: nowrap;'>
-  <div class="container" style="padding: 0;">
-
-    <button *ngIf="!this.audioElement.paused" type="button" (click)="this.audioElement.pause()" class="btn btn-info btn-sm glyphicon glyphicon-pause"></button>
-    <button *ngIf="this.audioElement.paused" type="button" (click)="this.audioElement.play()" class="btn btn-info btn-sm glyphicon glyphicon-play"></button>
-    <button type="button" (click)="this.volumeDown()" class="btn btn-default btn-sm glyphicon glyphicon-volume-down"></button>
-    <button type="button" (click)="this.volumeUp()" class="btn btn-default btn-sm glyphicon glyphicon-volume-up"></button>
-    &nbsp;&nbsp;
-    <span class="text-info">
-      {{this.audioElement.volume *100 | number:'2.0-0' }}
-    </span>
-    &nbsp;&nbsp;
-    <span class="text-info">
-        {{this.audioElement.title}}
-    </span>
+<div class="well well-sm" style='white-space: nowrap;'>
+  <div class="container-fluid" >
+    <div style="display: inline-block;">
+      <button *ngIf="!this.audioElement.paused" type="button" (click)="this.audioElement.pause()"
+        class="btn btn-info btn-sm glyphicon glyphicon-pause"></button>
+      <button *ngIf="this.audioElement.paused" type="button" (click)="this.audioElement.play()"
+        class="btn btn-info btn-sm glyphicon glyphicon-play"></button>
+      <button type="button" (click)="this.volumeDown()"
+        class="btn btn-default btn-sm glyphicon glyphicon-volume-down"></button>
+      <button type="button" (click)="this.volumeUp()"
+        class="btn btn-default btn-sm glyphicon glyphicon-volume-up"></button>
+      &nbsp;&nbsp;
+      <span class="text-info ">
+        {{this.audioElement.volume *100 | number:'2.0-0' }}
+      </span>
+      &nbsp;&nbsp;
+    </div>
+    <div class="marquee">
+      <div>
+        <span class="text-info"> {{this.audioElement.title}}</span>
+        <span class="text-info"> {{this.audioElement.title}}</span>
+      </div>
+    </div>
   </div>
 </div>
-
