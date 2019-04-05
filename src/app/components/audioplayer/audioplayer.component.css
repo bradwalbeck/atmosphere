@@ -1,4 +1,39 @@
 span {
- font-family: monospace;
- font-size: larger;
+    font-family: monospace;
+    font-size: larger;
+}
+
+.marquee{
+    display: inline-block;
+    height: 28px;
+    width: 75%;
+    overflow: hidden;
+    position: relative;
+    vertical-align: bottom;
+}
+
+.marquee div {
+    display: inline-block;
+    width: 220%;
+    height: 28px;
+    position: absolute;
+    overflow: hidden;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee span {
+    height: 28px;
+    float: left;
+    width: 50%;
+    overflow: hidden;
+}
+
+
+@keyframes marquee {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -110%;
+    }
 }
