@@ -14,7 +14,7 @@ span {
 
 .marquee div {
     display: inline-block;
-    width: 200%;
+    width: 220%;
     height: 28px;
     position: absolute;
     overflow: hidden;
@@ -34,6 +34,6 @@ span {
         left: 0;
     }
     100% {
-        left: -100%;
+        left: -110%;
     }
 }
